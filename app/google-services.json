@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "438181119111",
+    "project_id": "eclipsify-1c81c",
+    "storage_bucket": "eclipsify-1c81c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438181119111:android:bf90e8e1f4c9e6965da422",
+        "android_client_info": {
+          "package_name": "com.example.eclipsify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438181119111-02bnfqobinmjskg73hvcs409m1df3ce3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEDgIqL-j9EDPg-eoaZAzAroHy3CYUJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438181119111-02bnfqobinmjskg73hvcs409m1df3ce3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

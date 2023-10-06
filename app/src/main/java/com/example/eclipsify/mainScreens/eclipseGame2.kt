@@ -47,9 +47,8 @@ import androidx.navigation.NavHostController
 import com.example.eclipsify.R
 
 @OptIn(ExperimentalMaterial3Api::class)
-
 @Composable
-fun eclipseGame(navController: NavHostController) {
+fun eclipseGame2(navController: NavHostController) {
     var visible by remember{ mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()){
@@ -76,21 +75,21 @@ fun eclipseGame(navController: NavHostController) {
             )
         )
         Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = "Click on the Eclipse in \n the image below",
-                    color = Color.White,
-                    fontSize = 32.sp,
-                    fontFamily = FontFamily(
-                        Font(R.font.lexend)
-                    ), fontWeight = FontWeight.Medium, textAlign = TextAlign.Center, modifier = Modifier.offset(0.dp,-66.dp)
-                )
+            Text(
+                text = "Click on the Eclipse in \n the image below",
+                color = Color.White,
+                fontSize = 32.sp,
+                fontFamily = FontFamily(
+                    Font(R.font.lexend)
+                ), fontWeight = FontWeight.Medium, textAlign = TextAlign.Center, modifier = Modifier.offset(0.dp,-66.dp)
+            )
             Box(
                 Modifier
                     .size(354.dp, 354.dp)
                     .border(9.dp, Color.White)) {
 
                 Image(
-                    painterResource(id = R.drawable.gamme),
+                    painterResource(id = R.drawable.game2),
                     contentDescription = "",
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
@@ -100,7 +99,7 @@ fun eclipseGame(navController: NavHostController) {
         Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Bottom, horizontalAlignment = Alignment.CenterHorizontally){
 
             AnimatedVisibility(visible) {
-                Button(onClick = { navController.navigate("EclipseGame2") }, modifier = Modifier
+                Button(onClick = { navController.navigate("EclipseGame3") }, modifier = Modifier
                     .size(303.dp, 55.dp)
                     .offset(0.dp, -80.dp)
                     .padding(bottom = 10.dp), colors = ButtonDefaults.buttonColors(colorResource(id = R.color.gold))) {
@@ -115,7 +114,7 @@ fun eclipseGame(navController: NavHostController) {
                 }
                 OutlinedCard(
                     Modifier
-                        .size(75.dp, 75.dp).offset(230.dp,-350.dp)
+                        .size(75.dp, 75.dp).offset(13.dp,-230.dp)
                         .border(2.dp, color = Color.Green), colors = CardDefaults.cardColors(Color.Transparent)) {
 
                 }
@@ -124,14 +123,14 @@ fun eclipseGame(navController: NavHostController) {
         }
 
 
-    Image(painter = painterResource(id = R.drawable.eclipseee), contentDescription ="",
-        Modifier
-            .offset(220.dp, 380.dp)
-            .size(190.dp, 190.dp)
-            .clickable { visible = !visible })}
+        Image(painter = painterResource(id = R.drawable.ecl2), contentDescription ="",
+            Modifier
+                .offset(1.dp, 490.dp)
+                .size(190.dp, 190.dp)
+                .clickable { visible = !visible })}
 
 
 
 
-    }
-    
+}
+

@@ -20,8 +20,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgs
+import com.example.eclipsify.mainScreens.eclipseGame
+import com.example.eclipsify.mainScreens.eclipseGame2
+import com.example.eclipsify.mainScreens.eclipseGame3
+import com.example.eclipsify.mainScreens.eclipseGame4
 import com.example.eclipsify.mainScreens.findEclipse
 import com.example.eclipsify.mainScreens.kidScreen
+import com.example.eclipsify.mainScreens.lunarEclipse
 import com.example.eclipsify.mainScreens.solarEclipse
 import com.example.eclipsify.mainScreens.whatEclipse
 import com.example.eclipsify.mainScreens.youngScreen
@@ -69,6 +74,21 @@ fun App(){
         }
         composable("FindEclipse"){
             findEclipse(navController = navController)
+        }
+        composable("EclipseGame"){
+            eclipseGame(navController = navController)
+        }
+        composable("EclipseGame2"){
+            eclipseGame2(navController = navController)
+        }
+        composable("EclipseGame3"){
+            eclipseGame3(navController = navController)
+        }
+        composable("EclipseGame4"){
+            eclipseGame4(navController = navController)
+        }
+        composable("LunarEclipse"){
+            lunarEclipse(navController = navController)
         }
 
     }

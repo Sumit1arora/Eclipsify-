@@ -121,7 +121,7 @@ fun findEclipse(navController: NavHostController) {
                 modifier = Modifier.padding(top = 22.dp, bottom = 24.dp),
                 textAlign = TextAlign.Center
             )
-            Button(onClick = { /*TODO*/ }, modifier = Modifier
+            Button(onClick = { navController.navigate("EclipseGame") }, modifier = Modifier
                 .size(303.dp, 55.dp)
                 .padding(top = 10.dp), colors = ButtonDefaults.buttonColors(colorResource(id = R.color.gold))) {
                 Text(

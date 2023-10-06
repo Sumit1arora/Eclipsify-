@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,27 +42,27 @@ import com.example.eclipsify.R
 fun whatEclipse(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize())
     {
-        Image(painter = painterResource(id = R.drawable.bcg), contentDescription ="", modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+        Image(painter = painterResource(id = R.drawable.ecli), contentDescription ="", modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
     }
     Column(
         Modifier
             .fillMaxSize()
             .verticalScroll(state = rememberScrollState())) {
 
-            Image(painter = painterResource(id = R.drawable.whtecl),contentDescription ="", modifier = Modifier.fillMaxWidth() ,contentScale = ContentScale.FillWidth)
+            Image(painter = painterResource(id = R.drawable.maineclipse),contentDescription ="", modifier = Modifier.fillMaxWidth() ,contentScale = ContentScale.FillWidth)
 
         Row {
             Text(text = "What is ",
                 color = Color.White,
-                fontSize = 24.sp,
-                fontFamily = FontFamily(Font(R.font.lzsemibold)),
+                fontSize = 27.sp,
+                fontFamily = FontFamily(Font(R.font.lesemibold)),
                 modifier = Modifier
                     .padding(start = 15.dp, top = 31.dp)
                     )
             Text(text = "Eclipse ",
                 color = colorResource(id = R.color.blueAcc),
-                fontSize = 24.sp,
-                fontFamily = FontFamily(Font(R.font.lzsemibold)),
+                fontSize = 27.sp,
+                fontFamily = FontFamily(Font(R.font.lesemibold)),
                 modifier = Modifier
                     .padding(start = 1.dp, top = 31.dp)
                     )
@@ -73,7 +74,10 @@ fun whatEclipse(navController: NavHostController) {
                     .padding(top = 31.dp)
                     .offset(-9.dp)
                     )
-
+            Divider(
+                color = colorResource(id = R.color.blueAcc),
+                modifier = Modifier.padding(top = 52.dp, end = 18.dp)
+            )
         }
 
         Text(text= stringResource(id = R.string.Eclipse),
@@ -91,11 +95,16 @@ fun whatEclipse(navController: NavHostController) {
         Text(text = "Types: ",
             color = Color.White,
             fontSize = 20.sp,
-            fontFamily = FontFamily(Font(R.font.lzsemibold)),
+            fontFamily = FontFamily(Font(R.font.lesemibold)),
             modifier = Modifier
                 .padding(start = 15.dp, top = 31.dp)
                 )
-        typesCarousel()
+        Divider(
+            color = colorResource(id = R.color.blueAcc),
+            modifier = Modifier.padding(start = 110.dp, top = 0.dp, end = 12.dp).offset(0.dp,-12.dp)
+        )
+        typesCarousel(navController)
+
         Spacer(modifier = Modifier.padding(top = 130.dp))
 
     }
@@ -105,7 +114,7 @@ fun whatEclipse(navController: NavHostController) {
 
 }
 @Composable
-fun typesCarousel(){
+fun typesCarousel(navController: NavHostController){
 
     Row(
         Modifier
@@ -114,16 +123,16 @@ fun typesCarousel(){
 
 
         Card(modifier = Modifier
-            .size(170.dp, 232.dp)
+            .size(170.dp, 210.dp)
 
-            .clickable { }, colors = CardDefaults.cardColors(colorResource(id = R.color.trans)) ){
+            .clickable { navController.navigate("SolarEclipse")}, colors = CardDefaults.cardColors(colorResource(id = R.color.trans)) ){
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.solar) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 17.dp, top = 4.dp)
                         .size(135.dp, 135.dp))
-                Text(text = "Solar", color = colorResource(id = R.color.blueAcc), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 43.dp, top = 2.dp))
-                Text(text = "Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 19.5.dp))
+                Text(text = " Solar", color = colorResource(id = R.color.blueAcc), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 43.dp, top = 2.dp))
+                Text(text = " Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 21.5.dp))
 
 
 
@@ -131,17 +140,17 @@ fun typesCarousel(){
 
         }
         Card(modifier = Modifier
-            .size(170.dp, 232.dp)
-            .padding(start = 10.dp)
-            .clickable { }, colors = CardDefaults.cardColors(
+            .size(170.dp, 210.dp)
+            .offset(10.dp)
+            .clickable {navController.navigate("LunarEclipse") }, colors = CardDefaults.cardColors(
             colorResource(id = R.color.trans))) {
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.lunar) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 32.dp, top = 21.dp)
                         .size(96.dp, 97.dp))
-                Text(text = "Lunar", color = colorResource(id = R.color.blueAcc), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 37.dp, top = 22.dp))
-                Text(text = "Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 19.5.dp))
+                Text(text = " Lunar", color = colorResource(id = R.color.blueAcc), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 37.dp, top = 22.dp))
+                Text(text = " Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 19.5.dp))
 
 
 

@@ -230,7 +230,6 @@ fun youngScreen(navController: NavHostController) {
                         Card(modifier = Modifier
                             .size(170.dp, 200.dp)
                             .padding(start = 15.dp),
-                            elevation = CardDefaults.elevatedCardElevation(10.dp),
                             onClick = { navController.navigate("SolarEclipse") },
                             colors = CardDefaults.cardColors(colorResource(id = R.color.trans))
                         ) {
@@ -265,7 +264,7 @@ fun youngScreen(navController: NavHostController) {
                             modifier = Modifier
                                 .size(170.dp, 200.dp)
                                 .padding(start = 15.dp)
-                                .clickable { }, colors = CardDefaults.cardColors(
+                                .clickable {navController.navigate("LunarEclipse") }, colors = CardDefaults.cardColors(
                                 colorResource(id = R.color.trans)
                             )
                         ) {

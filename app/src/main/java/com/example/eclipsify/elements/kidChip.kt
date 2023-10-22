@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.eclipsify.R
 import com.google.android.material.chip.Chip
 
@@ -43,14 +44,14 @@ fun kidhome() {
 }
 
 @Composable
-fun kidcomic() {
+fun kidsolar(navController: NavHostController) {
     var isSelected by remember {
         mutableStateOf(false)
     }
     AssistChip(modifier = Modifier
         .padding(start = 7.dp, top = 15.dp)
-        .size(80.dp, 25.dp),onClick = { /*TODO*/ },
-        label = { Text(text = "Comic", modifier = Modifier.padding(start = 1.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
+        .size(80.dp, 25.dp),onClick = { navController.navigate("KidSolar") },
+        label = { Text(text = " Solar", modifier = Modifier.padding(start = 4.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
             Font(R.font.leextrabold)
         )) }, colors = AssistChipDefaults.assistChipColors(containerColor = Color.White.copy(0.1f)), border = null)
 
@@ -65,21 +66,21 @@ fun kidsafety() {
     AssistChip(modifier = Modifier
         .padding(start = 7.dp, top = 15.dp)
         .size(150.dp, 25.dp),onClick = { /*TODO*/ },
-        label = { Text(text = "Safety Precautions", modifier = Modifier.padding(start = 0.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
+        label = { Text(text = " Safety Precautions", modifier = Modifier.padding(start = 0.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
             Font(R.font.leextrabold)
         )) }, colors = AssistChipDefaults.assistChipColors(containerColor = Color.White.copy(0.1f)), border = null)
 
 
 }
 @Composable
-fun kidvideos() {
+fun kidlunar(navController: NavHostController) {
     var isSelected by remember {
         mutableStateOf(false)
     }
     AssistChip(modifier = Modifier
         .padding(start = 7.dp, top = 15.dp)
-        .size(70.dp, 25.dp),onClick = { /*TODO*/ },
-        label = { Text(text = "Videos", modifier = Modifier.padding(start = 0.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
+        .size(70.dp, 25.dp),onClick = { navController.navigate("KidLunar") },
+        label = { Text(text = "Lunar", modifier = Modifier.padding(start = 0.dp, bottom = 2.dp), color = Color.White, fontSize = 9.sp, fontFamily = FontFamily(
             Font(R.font.leextrabold)
         )) }, colors = AssistChipDefaults.assistChipColors(containerColor = Color.White.copy(0.1f)), border = null)
 

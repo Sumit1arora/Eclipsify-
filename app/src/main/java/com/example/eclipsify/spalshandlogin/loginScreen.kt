@@ -65,7 +65,7 @@ fun LoginPage() {
             )
             Text(text = "Login Account", fontSize = 24.sp,
                 color = Color.White, fontFamily = FontFamily(
-                    Font(R.font.lzsemibold)), modifier = Modifier.padding(top = 28.dp))
+                    Font(R.font.akirabold)), modifier = Modifier.padding(top = 28.dp))
             Spacer(modifier = Modifier.padding(20.dp))
             emailTextField(email,{email=it})
             Spacer(modifier = Modifier.padding(5.dp))
@@ -90,7 +90,7 @@ fun LoginPage() {
 @Composable
 fun emailTextField(username:String,onUsernameChange:(String)-> Unit) {
     OutlinedTextField(value = username, onValueChange =onUsernameChange, label = { Text(text = "Enter Email id", color = colorResource(
-        id = R.color.blueAcc
+        id = R.color.orange
     ))}, modifier = Modifier.requiredWidth(350.dp)
         ,
         shape = RoundedCornerShape(30.dp), colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -102,7 +102,7 @@ fun emailTextField(username:String,onUsernameChange:(String)-> Unit) {
 @Composable
 fun passwordTextField(password:String,onPasswordChange:(String)->Unit) {
     OutlinedTextField(value = password, onValueChange =onPasswordChange, label = { Text(text = "Enter Password", color = colorResource(
-        id = R.color.blueAcc
+        id = R.color.orange
     ))}, modifier = Modifier.requiredWidth(350.dp)
         ,
         shape = RoundedCornerShape(30.dp), colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -116,8 +116,8 @@ fun passwordTextField(password:String,onPasswordChange:(String)->Unit) {
 fun loginButton() {
     Button(onClick = {
     }, colors = ButtonDefaults.buttonColors(Color.White), modifier = Modifier.requiredSize(350.dp,50.dp)) {
-        Text(text = "Login", fontSize = 18.sp, fontFamily = FontFamily(Font(R.font.lesemibold)), modifier = Modifier, color = colorResource(
-            id = R.color.blueAcc
+        Text(text = "Login", fontSize = 18.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier, color = colorResource(
+            id = R.color.orange
         ))
 
     }
@@ -141,7 +141,7 @@ fun googleButton(txt:String) {
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 18.sp,
                 fontFamily = FontFamily.Serif,
-                color = colorResource(id = R.color.blueAcc)
+                color = colorResource(id = R.color.orange)
             )
         }
 

@@ -46,16 +46,35 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+
         }
     }
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
+
+// Use the appropriate version
+
+    implementation("io.grpc:grpc-okhttp:1.53.0")
+    implementation ("androidx.compose.ui:ui:1.5.4")
+    implementation ("androidx.compose.material:material:1.5.4")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.android.volley:volley:1.2.1")
+    val lifecycle_version = "2.6.2"
+    implementation ("com.google.accompanist:accompanist-insets:0.23.1")
+    implementation ("com.google.android.exoplayer:exoplayer-core:2.17.1")
+    implementation ("com.google.android.exoplayer:exoplayer-ui:2.17.1")
+    implementation ("io.github.sceneview:arsceneview:0.10.0")
+
     implementation ("androidx.navigation:navigation-compose:2.4.0-alpha02")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.3")
-
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
+    implementation ("io.coil-kt:coil-compose:2.1.0")
+    implementation ("io.coil-kt:coil-gif:2.1.0")
     implementation("androidx.core:core-ktx:1.9.0")
-        implementation("androidx.core:core-splashscreen:1.0.0")
+        implementation("androidx.core:core-splashscreen:1.0.0-beta01")
     implementation("androidx.compose.material3:material3:1.1.2")
     implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

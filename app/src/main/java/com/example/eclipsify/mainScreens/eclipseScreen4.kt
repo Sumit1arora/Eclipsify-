@@ -80,7 +80,7 @@ fun eclipseGame4(navController: NavHostController) {
                 color = Color.White,
                 fontSize = 32.sp,
                 fontFamily = FontFamily(
-                    Font(R.font.lexend)
+                    Font(R.font.popreg)
                 ), fontWeight = FontWeight.Medium, textAlign = TextAlign.Center, modifier = Modifier.offset(0.dp,-66.dp)
             )
             Box(
@@ -107,7 +107,7 @@ fun eclipseGame4(navController: NavHostController) {
                         text = "Submit",
                         color = Color.Black,
                         fontSize = 18.sp,
-                        fontFamily = FontFamily(Font(R.font.lexend)),
+                        fontFamily = FontFamily(Font(R.font.popreg)),
                         fontWeight = FontWeight.Bold
                     )
 

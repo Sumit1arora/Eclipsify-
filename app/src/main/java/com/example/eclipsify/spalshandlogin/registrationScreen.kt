@@ -61,7 +61,7 @@ fun RegisterPage() {
             )
             Text(text = "Create Account", fontSize = 24.sp,
                 color = Color.White, fontFamily = FontFamily(
-                    Font(R.font.lzsemibold)), modifier = Modifier.padding(top = 28.dp))
+                    Font(R.font.akirabold)), modifier = Modifier.padding(top = 28.dp))
             Spacer(modifier = Modifier.padding(20.dp))
             name(name,{name=it} )
             Spacer(modifier = Modifier.padding(5.dp))
@@ -89,7 +89,7 @@ fun RegisterPage() {
 @Composable
 fun name(name:String,onNameChange:(String)-> Unit) {
     OutlinedTextField(value = name, onValueChange =onNameChange, label = { Text(text = "Enter Your Name", color = colorResource(
-        id = R.color.blueAcc
+        id = R.color.orange
     ))}, modifier = Modifier.requiredWidth(350.dp)
         ,
         shape = RoundedCornerShape(30.dp), colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -101,8 +101,8 @@ fun name(name:String,onNameChange:(String)-> Unit) {
 @Composable
 fun ResisterButton() {
     Button(onClick ={}, colors = ButtonDefaults.buttonColors(Color.White), modifier = Modifier.requiredSize(350.dp,50.dp)) {
-        Text(text = "Create Account", fontSize = 18.sp, fontFamily = FontFamily(Font(R.font.lesemibold)), modifier = Modifier, color = colorResource(
-            id = R.color.blueAcc
+        Text(text = "Create Account", fontSize = 18.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier, color = colorResource(
+            id = R.color.orange
         ))
 
     }

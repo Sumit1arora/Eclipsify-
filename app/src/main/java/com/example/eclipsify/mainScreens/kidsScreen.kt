@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -36,19 +38,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.eclipsify.R
 import com.example.eclipsify.bars.MainBar
-import com.example.eclipsify.bars.kidBar
-import com.example.eclipsify.elements.kidcomic
 import com.example.eclipsify.elements.kidhome
+import com.example.eclipsify.elements.kidlunar
 import com.example.eclipsify.elements.kidsafety
-import com.example.eclipsify.elements.kidvideos
+import com.example.eclipsify.elements.kidsolar
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -91,17 +94,29 @@ fun kidScreen(navController: NavHostController) {
                  Box(
                     modifier = Modifier.padding(end =17.dp, top = 20.dp)
                 ) {
-                    var isChecked by remember { mutableStateOf(true) }
-                    Switch(checked = isChecked, onCheckedChange ={isChecked=it
-                        if (!isChecked){
-                            navController.navigate("YoungScreen")
-                        }
+                     Row(verticalAlignment = Alignment.CenterVertically) {
 
-                    }, modifier = Modifier,colors = SwitchDefaults.colors(
-                        checkedThumbColor = colorResource(id = R.color.gold), checkedTrackColor = colorResource(
-                            id = R.color.track
-                        ))
-                    )
+
+                     var isChecked by remember { mutableStateOf(true) }
+                         Text(text = "User", fontSize = 10.sp, fontFamily = FontFamily(Font(R.font.leextrabold)))
+
+                         Switch(
+                         checked = isChecked, onCheckedChange = {
+                             isChecked = it
+                             if (!isChecked) {
+                                 navController.navigate("YoungScreen")
+                             }
+
+                         }, modifier = Modifier.padding(start = 8.dp), colors = SwitchDefaults.colors(
+                             checkedThumbColor = colorResource(id = R.color.gold),
+                             checkedTrackColor = colorResource(
+                                 id = R.color.track
+                             )
+                         )
+                     )
+                         Text(text = "Kids", fontSize = 10.sp, fontFamily = FontFamily(Font(R.font.leextrabold)), modifier = Modifier.padding(start = 8.dp))
+
+                     }
                 }
 
 
@@ -114,9 +129,9 @@ fun kidScreen(navController: NavHostController) {
                 .offset(13.dp, -40.dp))
             Row(Modifier.padding(top = 30.dp)) {
                 kidhome()
-                kidcomic()
+                kidsolar(navController)
                 kidsafety()
-                kidvideos()
+                kidlunar(navController)
             }
 
         }
@@ -127,14 +142,14 @@ fun kidScreen(navController: NavHostController) {
             text = "Let's",
             color = Color.White,
             fontSize = 26.sp,
-            fontFamily = FontFamily(Font(R.font.lzsemibold)),
+            fontFamily = FontFamily(Font(R.font.akirabold)),
             modifier = Modifier
                 .padding(start = 23.dp,)
                 .offset(0.dp, 30.dp)
         )
         Text(text = "Explore",
             color = colorResource(id = R.color.gold),
-            fontSize = 26.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)),
+            fontSize = 26.sp, fontFamily = FontFamily(Font(R.font.akirabold)),
             modifier = Modifier
                 .padding(start = 23.dp)
                 .offset(0.dp, 30.dp))
@@ -149,20 +164,22 @@ fun kidScreen(navController: NavHostController) {
 
 
 
-    Row(modifier = Modifier.horizontalScroll(state = rememberScrollState())) {
+    Row(modifier = Modifier
+        .horizontalScroll(state = rememberScrollState())
+        .offset(0.dp, -32.dp)) {
 
         Card(modifier = Modifier
             .size(170.dp, 200.dp)
             .padding(start = 15.dp)
-            .clickable { }, colors = CardDefaults.cardColors(
+            .clickable {navController.navigate("KidsUpcoming") }, colors = CardDefaults.cardColors(
             colorResource(id = R.color.trans))) {
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.upcome) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 18.dp, top = 15.dp)
                         .size(120.dp, 120.dp))
-                Text(text = "Upcoming ", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 14.dp, top = 10.dp))
-                Text(text = "Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 23.dp))
+                Text(text = "Upcoming ", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 14.dp, top = 10.dp))
+                Text(text = "Eclipses", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 23.dp))
 
 
 
@@ -172,15 +189,15 @@ fun kidScreen(navController: NavHostController) {
         Card(modifier = Modifier
             .size(170.dp, 200.dp)
             .padding(start = 15.dp)
-            .clickable { navController.navigate("FindEclipse")}, colors = CardDefaults.cardColors(
+            .clickable { navController.navigate("FindEclipse") }, colors = CardDefaults.cardColors(
             colorResource(id = R.color.trans))) {
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.find) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 14.dp, top = 9.dp)
                         .size(136.dp, 136.dp))
-                Text(text = "Find The", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 24.dp))
-                Text(text = "Eclipse", color=colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 33.dp))
+                Text(text = "Find The", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 24.dp))
+                Text(text = "Eclipse", color=colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 33.dp))
 
 
 
@@ -190,15 +207,15 @@ fun kidScreen(navController: NavHostController) {
         Card(modifier = Modifier
             .size(170.dp, 200.dp)
             .padding(start = 15.dp)
-            .clickable { }, colors = CardDefaults.cardColors(
+            .clickable { navController.navigate("Comic") }, colors = CardDefaults.cardColors(
             colorResource(id = R.color.trans))) {
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.comicicon) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 29.dp, top = 28.dp)
                         .size(100.dp, 100.dp))
-                Text(text = "Comic", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 37.dp, top = 18.dp))
-                Text(text = "Zone", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 47.dp))
+                Text(text = "Comic", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 37.dp, top = 18.dp))
+                Text(text = "Zone", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 47.dp))
 
 
 
@@ -208,23 +225,243 @@ fun kidScreen(navController: NavHostController) {
         Card(modifier = Modifier
             .size(170.dp, 200.dp)
             .padding(start = 15.dp, end = 8.dp)
-            .clickable { }, colors = CardDefaults.cardColors(
+            .clickable {navController.navigate("QuizKid") }, colors = CardDefaults.cardColors(
             colorResource(id = R.color.trans))) {
             Column(verticalArrangement = Arrangement.Center) {
                 Image(painter = painterResource(id = R.drawable.quiz) , contentDescription = "",
                     modifier = Modifier
                         .padding(start = 18.dp, top = 4.dp)
                         .size(126.dp, 126.dp))
-                Text(text = "Play Fun", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 20.dp, top = 16.dp))
-                Text(text = "  Quiz", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.lzsemibold)), modifier = Modifier.padding(start = 30.dp))
+                Text(text = "Play Fun", color = Color.White, fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 20.dp, top = 16.dp))
+                Text(text = "  Quiz", color = colorResource(id = R.color.gold), fontSize = 15.sp, fontFamily = FontFamily(Font(R.font.akirabold)), modifier = Modifier.padding(start = 30.dp))
 
 
 
             }
 
         }
+        Card(modifier = Modifier
+            .size(170.dp, 200.dp)
+            .padding(start = 15.dp),
+            onClick = { navController.navigate("KidSolar") },
+            colors = CardDefaults.cardColors(colorResource(id = R.color.trans))
+        ) {
+            Column(verticalArrangement = Arrangement.Center) {
+                Image(
+                    painter = painterResource(id = R.drawable.solar),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .padding(start = 7.dp, top = 4.dp)
+                        .size(135.dp, 135.dp)
+                )
+                Text(
+                    text = "Solar",
+                    color = colorResource(id = R.color.gold),
+                    fontSize = 15.sp,
+                    fontFamily = FontFamily(Font(R.font.akirabold)),
+                    modifier = Modifier.padding(start = 37.dp, top = 2.dp)
+                )
+                Text(
+                    text = "Eclipses",
+                    color = Color.White,
+                    fontSize = 15.sp,
+                    fontFamily = FontFamily(Font(R.font.akirabold)),
+                    modifier = Modifier.padding(start = 19.5.dp)
+                )
+
+
+            }
+
+        }
+        Card(
+            modifier = Modifier
+                .size(170.dp, 200.dp)
+                .padding(start = 15.dp)
+                .clickable { navController.navigate("KidLunar")}, colors = CardDefaults.cardColors(
+                colorResource(id = R.color.trans)
+            )
+        ) {
+            Column(verticalArrangement = Arrangement.Center) {
+                Image(
+                    painter = painterResource(id = R.drawable.lunar),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .padding(start = 29.dp, top = 21.dp)
+                        .size(96.dp, 97.dp)
+                )
+                Text(
+                    text = "Lunar",
+                    color = colorResource(id = R.color.gold),
+                    fontSize = 15.sp,
+                    fontFamily = FontFamily(Font(R.font.akirabold)),
+                    modifier = Modifier.padding(start = 37.dp, top = 22.dp)
+                )
+                Text(
+                    text = "Eclipses",
+                    color = Color.White,
+                    fontSize = 15.sp,
+                    fontFamily = FontFamily(Font(R.font.akirabold)),
+                    modifier = Modifier.padding(start = 19.5.dp)
+                )
+
+
+            }
+
+        }
     }
+        Row(Modifier.offset(0.dp,-25.dp)) {
+            Text(text = "What is ",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontFamily = FontFamily(Font(R.font.akirabold)),
+                modifier = Modifier
+                    .padding(start = 15.dp, top = 31.dp)
+                    .clickable { })
+            Text(text = "Eclipse ",
+                color = colorResource(id = R.color.gold),
+                fontSize = 16.sp,
+                fontFamily = FontFamily(Font(R.font.akirabold)),
+                modifier = Modifier
+                    .padding(start = 1.dp, top = 31.dp)
+                    .clickable { })
+            Text(text = "?",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontFamily = FontFamily(Font(R.font.akirabold)),
+                modifier = Modifier
+                    .padding(top = 31.dp)
+                    .offset(-9.dp)
+                    .clickable { })
+
+            Divider(
+                color = colorResource(id = R.color.gold),
+                modifier = Modifier.padding(top = 46.dp, end = 18.dp)
+            )
+
+        }
+        Column(Modifier.offset(0.dp,-10.dp)) {
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .clickable { navController.navigate("KidEclipse") }
+            ) {
+
+
+                Text(
+                    text = "An eclipse is an astronomical event that occurs when the view of an object is temporarily obscured, cast into a shadow, or even completely concealed. Eclipses occur during a syzygy, or when astronomical objects reach an alignment. ",
+                    color = Color.White,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.lelight)),
+                    modifier = Modifier.padding(
+                        top = 18.dp,
+                        start = 15.dp,
+                        end = 18.dp
+                    ),
+                    textAlign = TextAlign.Justify
+                )
+                Text(
+                    text = "See all.",
+                    fontSize = 16.sp,
+                    color = colorResource(id = R.color.gold),
+                    fontFamily = FontFamily(
+                        Font(R.font.lelight)
+                    ),
+                    modifier = Modifier
+                        .padding(start = 290.dp)
+                        .offset(-170.dp, 177.dp)
+                )
+            }
+        }
+        Column {
+            Divider(
+                color = colorResource(id = R.color.gold),
+                modifier = Modifier.padding(start = 15.dp, top = 29.dp, end = 144.dp)
+            )
+            Text(
+                text = "Gallery",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontFamily = FontFamily(Font(R.font.akirabold)),
+                modifier = Modifier
+                    .padding(start = 275.dp, top = 20.dp)
+                    .offset(0.dp, -36.dp)
+            )
+
+
+
+                Row(modifier = Modifier.horizontalScroll(state = rememberScrollState())) {
+
+                    Card(modifier = Modifier
+                        .size(264.dp, 178.dp)
+                        .padding(start = 15.dp)
+                        .clickable { }, colors = CardDefaults.cardColors(
+                        colorResource(id = R.color.trans))) {
+                        Column(verticalArrangement = Arrangement.Center) {
+                            Image(painter = painterResource(id = R.drawable.kidc1) , contentDescription = "",
+                                modifier = Modifier
+                                    .padding(start = 15.dp, top = 2.dp)
+                                    .offset(-4.9.dp)
+                                    .size(226.dp, 457.dp))
+                        }
+
+                    }
+                    Card(modifier = Modifier
+                        .size(264.dp, 178.dp)
+                        .padding(start = 15.dp)
+                        .clickable { }, colors = CardDefaults.cardColors(colorResource(id = R.color.trans)) ){
+                        Column(verticalArrangement = Arrangement.Center) {
+                            Image(painter = painterResource(id = R.drawable.kidc2) , contentDescription = "",
+                                modifier = Modifier
+                                    .padding(start = 10.dp, top = 4.dp, bottom = 3.dp)
+                                    .size(226.dp, 457.dp))
+
+
+
+
+                        }
+
+                    }
+                    Card(modifier = Modifier
+                        .size(264.dp, 178.dp)
+                        .padding(start = 15.dp)
+                        .clickable { }, colors = CardDefaults.cardColors(
+                        colorResource(id = R.color.trans))) {
+                        Column(verticalArrangement = Arrangement.Center) {
+                            Image(painter = painterResource(id = R.drawable.kidc3) , contentDescription = "",
+                                modifier = Modifier
+                                    .padding(start = 8.dp, top = 1.dp)
+                                    .offset(4.dp)
+                                    .size(226.dp, 345.dp))
+
+
+
+                        }
+
+                    }
+                    Card(modifier = Modifier
+                        .size(264.dp, 178.dp)
+                        .padding(start = 15.dp)
+                        .clickable { }, colors = CardDefaults.cardColors(
+                        colorResource(id = R.color.trans))) {
+                        Column(verticalArrangement = Arrangement.Center) {
+                            Image(painter = painterResource(id = R.drawable.kidc4) , contentDescription = "",
+                                modifier = Modifier
+                                    .padding(start = 8.dp, top = 1.dp)
+                                    .offset(4.dp)
+                                    .size(226.dp, 345.dp))
+
+
+
+                        }
+
+                    }
+
+                }
+            Spacer(modifier = Modifier.height(70.dp))
+            }
+
+
+
+        }
 
     }
     
-}

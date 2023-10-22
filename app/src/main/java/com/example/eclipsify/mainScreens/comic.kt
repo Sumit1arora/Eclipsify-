@@ -19,7 +19,7 @@ import com.example.eclipsify.R
 fun comic() {
     Box(modifier =Modifier.fillMaxSize().background(color = Color.White))
     {
-        Image(painter = painterResource(id = R.drawable.comics ), contentDescription = "",
+        Image(painter = painterResource(id = R.drawable.comicis ), contentDescription = "",
             Modifier
                 .fillMaxSize()
                 .verticalScroll(state = rememberScrollState()) , contentScale = ContentScale.FillBounds)

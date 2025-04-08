@@ -42,5 +42,12 @@ Canva for creating educational comics and visuals
 Open data APIs for live eclipse event information
 
 
-<img width="514" alt="2" src="https://github.com/Sumit1arora/Eclipsify_TeamSurvival/assets/89720510/b2d901c4-5421-4814-8892-2472c64b9930"><img width="514" alt="3" src="https://github.com/Sumit1arora/Eclipsify_TeamSurvival/assets/89720510/0323b1d6-9ee3-490b-a1c0-e36aaa96943b">
+![image](https://github.com/user-attachments/assets/f0b6c0e0-80db-49f3-a1be-eeea5bbce49b)
+
+![image](https://github.com/user-attachments/assets/6242a182-7042-4ca1-9886-3d27adc0f0ea)
+
+
+![image](https://github.com/user-attachments/assets/5c0e9f91-3736-4421-8a4d-fc7af914a40e)
+
+![image](https://github.com/user-attachments/assets/ca18b56e-d1de-4c03-97a9-bfd364986f74)
 
